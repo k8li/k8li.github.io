@@ -53,9 +53,9 @@
                 <header>
                     <h1>Kate Xin Li</h1>
                     <!-- <p>lorem</p> -->
-                    <p>Composer, Software Developer, <br> Performer, Teacher</p>
+                    <p>Composer, Performer, <br> Software Developer, Teacher</p>
                 </header>
-                <a href="#work" class="jumplink pic">
+                <a href="#bio" class="jumplink pic">
                     <span class="arrow icon fa-chevron-right"><span>See my work</span></span>
                     <img src="images/me.JPEG" alt="" />
                 </a>
@@ -98,9 +98,18 @@
                     <div class="row">
                         <!-- <link rel="stylesheet" href="mystyle.css"> -->
                         <!--structure: have animated? pic of the performance, click to go to popup with more info.-->
-                        <div class="4u">
-                            <a onclick="openPopup()" class="image fit"><img src="images/pic05.jpg" alt=""></a>
-                        </div>
+                            <div class="4u">
+                                    <a href="#" onclick="openPopup('popup1')" class="image fit">
+                                        <div class="container1">
+                                            <img src="images/xiaoyanzicover.png" alt="">
+                                            <div class="overlay">
+                                                <div class="text">xiao yanzi</div>
+                                            </div>
+                                        </div>
+                                            
+                                    </a>
+                            </div>
+                        
                         
                         <!--
                         <div class="4u">
@@ -111,7 +120,7 @@
                             allowfullscreen></iframe>
                         </div>
                     -->
-                        <div class="4u">
+                        <div class="6u">
                             <iframe width="260" height="190" src="https://www.youtube.com/embed/VoRBZ1PqJ0E" 
                             title="YouTube video player" 
                             frameborder="0" 
@@ -314,32 +323,51 @@
     <!----------------------------------->
     <!--POPUPS FOR MUSIC PAGE!!!!!!-->
 
-    <div class="popup" id ="popup">
+    <div class="popup" id ="popup1">
         <!-- <img src="images/pic05.jpg"> -->
         <h1>Xiao Yanzi</h1>
-        <iframe width="500" height="300" src="https://www.youtube.com/embed/Q8x9b588bNM?start=143" 
+        <p>This is some sample text about the piece.</p>
+        <iframe id=vid1 width="500" height="300" src="https://www.youtube.com/embed/Q8x9b588bNM?start=143" 
+        title="xiaoyanzi_yt" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+        
+        <!-- HTML !-->
+        <button class="button-86" onclick="closePopup('popup1')" role="button">exit</button>
+    </div>
+
+    <div class="popup" id ="popup2">
+        <!-- <img src="images/pic05.jpg"> -->
+        <h1>Xiao Yanzi</h1>
+        <iframe id=vid1 width="500" height="300" src="https://www.youtube.com/embed/VoRBZ1PqJ0E" 
         title="xiaoyanzi_yt" 
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen></iframe>
         <!-- HTML !-->
-        <button class="button-86" onclick="closePopup()" role="button">Button 86</button>
-        <button type="button" onclick="closePopup()">EXIT</button>
+        <button class="button-86" onclick="closePopup('popup2')" role="button">exit</button>
     </div>
 
     <!--Script for popup animation-->
     <script>
-    let popup= document.getElementById("popup");
     var blur = document.getElementById("blur");
     
-    function openPopup(){
+    function openPopup(id){
+        let popup = document.getElementById(id);
         popup.classList.add("open-popup");
         popup.classList.add("popup-init");
         wrapper.classList.add("wrapper-popup");
     }
-    function closePopup(){
+    function closePopup(id){
+        let popup= document.getElementById(id);
         popup.classList.remove("open-popup");
         wrapper.classList.remove("wrapper-popup");
+        //may need to change this to only reload a single video in the popup if it gets too laggy.
+        $("iframe").each(function() { 
+        var src= $(this).attr('src');
+        $(this).attr('src',src);  
+        });
     }
     </script>
 
