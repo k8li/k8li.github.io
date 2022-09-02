@@ -6,18 +6,19 @@
 
 /*Edit on 4u:hover made by KXL*/
 .container1 {
+    position: relative;
     max-width: 500px;
     max-height: 190px;
 }
 
 .container1:hover .overlay{
-    opacity: 0.6;
+    opacity: 1;
 }
 
 .container1 .overlay{
     position: relative;
-    top: -155px;
-    height: 155px;
+    top: -240px;
+    height: 240px;
     width: 100%;
     opacity: 0;
     transition: .5s ease;
