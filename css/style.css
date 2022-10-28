@@ -7,28 +7,25 @@
 /*Edit on 4u:hover made by KXL*/
 .container1 {
     position: relative;
-    max-width: 500px;
-    max-height: 190px;
 }
 
-.container1:hover .overlay{
+.container1:hover img {
+    filter:blur(10px);
+}
+
+.container1:hover .text{
     opacity: 1;
-}
-
-.container1 .overlay{
-    position: relative;
-    top: -240px;
-    height: 240px;
-    width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: #c1c1c1;
+    transition: 0.5s ease;
+    position: absolute;
+    top: 70%;
+    left: 50%;
 }
 
 .text {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-size: 20px;
-    position: relative;
+    position: absolute;
+    opacity:0;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
